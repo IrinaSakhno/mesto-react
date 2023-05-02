@@ -19,7 +19,6 @@ const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) => {
         setUserId(profile._id);
 
         setCards(cards);
-        console.log(cards);
       })
       .catch((err) => {
         console.log(err);
