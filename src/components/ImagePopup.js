@@ -1,5 +1,4 @@
 import React from "react";
-import "../index.css";
 
 function ImagePopup({ onClose, name, card }) {
   return (

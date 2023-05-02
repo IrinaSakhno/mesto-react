@@ -1,5 +1,4 @@
 import React from "react";
-import "../index.css";
 
 function Card({ card, onCardClick }) {
   function handleClick() {
@@ -8,13 +7,12 @@ function Card({ card, onCardClick }) {
 
   return (
     <li className="elements__item">
-      <div
-        src=""
-        alt=""
+      <img
+        src={card.link}
+        alt={card.name}
         className="elements__image link"
-        style={{ backgroundImage: `url(${card.link})` }}
         onClick={handleClick}
-      ></div>
+      />
       <button className="elements__trash link" type="button"></button>
       <div className="elements__card">
         <h2 className="elements__card-name">{card.name}</h2>
