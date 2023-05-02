@@ -31,10 +31,6 @@ function App() {
     setIsAddPlacePopupOpen(true);
   };
 
-  const handleDeleteButtonClick = () => {
-    setIsDeleteConfirmationPopupOpen(true);
-  };
-
   const handleCardClick = (card) => {
     setSelectedCard({ isOpen: true, element: card });
   };
