@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import api from "../utils/api";
 import "../index.css";
 import Card from "./Card";
@@ -7,7 +7,6 @@ const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) => {
   const [userName, setUserName] = React.useState();
   const [userDescription, setUserDescription] = React.useState();
   const [userAvatar, setUserAvatar] = React.useState();
-  const [userId, setUserId] = React.useState();
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
@@ -16,7 +15,6 @@ const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) => {
         setUserName(profile.name);
         setUserDescription(profile.about);
         setUserAvatar(profile.avatar);
-        setUserId(profile._id);
 
         setCards(cards);
       })
