@@ -5,12 +5,8 @@ function Header() {
   return (
     <>
       <header className="header">
-          <img
-            src={HeaderLogo}
-            alt="Логотип"
-            className="header__logo"
-          />
-        </header>
+        <img src={HeaderLogo} alt="Логотип" className="header__logo" />
+      </header>
     </>
   );
 }
