@@ -3,6 +3,7 @@ class Api {
     this.baseUrl = options.baseUrl;
     this.apiToken = options.headers.authorization;
     this.contentType = options.headers.contentType;
+    this._headers = options.headers;
   }
 
   _getResponseData(res) {
@@ -27,10 +28,7 @@ class Api {
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: "GET",
-      headers: {
-        authorization: "e039fbc5-c9a5-4fc5-afa9-2046730c027f",
-        contentType: "application/json",
-      },
+      headers: this._headers,
     }).then((res) => {
       return this._getResponseData(res);
     });
