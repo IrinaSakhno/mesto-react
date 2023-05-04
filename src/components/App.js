@@ -87,7 +87,7 @@ function App() {
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
       >
-        <>
+        
           <input
             className="popup__form-field popup__form-field-source"
             name="source"
@@ -97,7 +97,7 @@ function App() {
             required
           />
           <span className="popup__input-error placelink-input-error avatar-link-input-error"></span>
-        </>
+        
       </PopupWithForm>
 
       <PopupWithForm
@@ -107,7 +107,7 @@ function App() {
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
       >
-        <>
+      
           <input
             className="popup__form-field popup__form-field-name"
             name="name"
@@ -130,7 +130,7 @@ function App() {
             required
           />
           <span className="popup__input-error occupation-input-error"></span>
-        </>
+        
       </PopupWithForm>
 
       <PopupWithForm
@@ -140,7 +140,7 @@ function App() {
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
       >
-        <>
+        
             <input
               className="popup__form-field popup__form-field-card"
               name="card"
@@ -161,7 +161,7 @@ function App() {
               required
             />
             <span className="popup__input-error placelink-input-error"></span>
-          </>
+          
           </PopupWithForm>
 
       <ImagePopup
