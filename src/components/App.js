@@ -87,17 +87,15 @@ function App() {
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
       >
-        
-          <input
-            className="popup__form-field popup__form-field-source"
-            name="source"
-            id="avatar-link-input"
-            type="url"
-            placeholder="Ссылка на картинку"
-            required
-          />
-          <span className="popup__input-error placelink-input-error avatar-link-input-error"></span>
-        
+        <input
+          className="popup__form-field popup__form-field-source"
+          name="source"
+          id="avatar-link-input"
+          type="url"
+          placeholder="Ссылка на картинку"
+          required
+        />
+        <span className="popup__input-error placelink-input-error avatar-link-input-error"></span>
       </PopupWithForm>
 
       <PopupWithForm
@@ -107,30 +105,28 @@ function App() {
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
       >
-      
-          <input
-            className="popup__form-field popup__form-field-name"
-            name="name"
-            id="name-input"
-            type="text"
-            placeholder="Введите имя"
-            minLength="2"
-            maxLength="40"
-            required
-          />
-          <span className="popup__input-error name-input-error"></span>
-          <input
-            className="popup__form-field popup__form-field-occupation"
-            name="occupation"
-            id="occupation-input"
-            type="text"
-            placeholder="Введите свой тип занятости"
-            minLength="2"
-            maxLength="200"
-            required
-          />
-          <span className="popup__input-error occupation-input-error"></span>
-        
+        <input
+          className="popup__form-field popup__form-field-name"
+          name="name"
+          id="name-input"
+          type="text"
+          placeholder="Введите имя"
+          minLength="2"
+          maxLength="40"
+          required
+        />
+        <span className="popup__input-error name-input-error"></span>
+        <input
+          className="popup__form-field popup__form-field-occupation"
+          name="occupation"
+          id="occupation-input"
+          type="text"
+          placeholder="Введите свой тип занятости"
+          minLength="2"
+          maxLength="200"
+          required
+        />
+        <span className="popup__input-error occupation-input-error"></span>
       </PopupWithForm>
 
       <PopupWithForm
@@ -140,29 +136,27 @@ function App() {
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
       >
-        
-            <input
-              className="popup__form-field popup__form-field-card"
-              name="card"
-              id="placename-input"
-              type="text"
-              placeholder="Название"
-              minLength="2"
-              maxLength="30"
-              required
-            />
-            <span className="popup__input-error placename-input-error"></span>
-            <input
-              className="popup__form-field popup__form-field-source"
-              name="source"
-              id="placelink-input"
-              type="url"
-              placeholder="Ссылка на картинку"
-              required
-            />
-            <span className="popup__input-error placelink-input-error"></span>
-          
-          </PopupWithForm>
+        <input
+          className="popup__form-field popup__form-field-card"
+          name="card"
+          id="placename-input"
+          type="text"
+          placeholder="Название"
+          minLength="2"
+          maxLength="30"
+          required
+        />
+        <span className="popup__input-error placename-input-error"></span>
+        <input
+          className="popup__form-field popup__form-field-source"
+          name="source"
+          id="placelink-input"
+          type="url"
+          placeholder="Ссылка на картинку"
+          required
+        />
+        <span className="popup__input-error placelink-input-error"></span>
+      </PopupWithForm>
 
       <ImagePopup
         onClose={closeAllPopups}
