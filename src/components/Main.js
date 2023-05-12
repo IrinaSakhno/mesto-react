@@ -2,9 +2,16 @@ import React from "react";
 import Card from "./Card";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
-const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onCardLike, onCardDelete }) => {
+const Main = ({
+  onEditProfile,
+  onAddPlace,
+  onEditAvatar,
+  onCardClick,
+  cards,
+  onCardLike,
+  onCardDelete,
+}) => {
   const currentUser = React.useContext(CurrentUserContext);
-  
 
   return (
     <main className="main">
@@ -45,7 +52,13 @@ const Main = ({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onC
         <ul className="elements__gallery">
           {cards.map((card) => {
             return (
-              <Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete} />
+              <Card
+                key={card._id}
+                card={card}
+                onCardClick={onCardClick}
+                onCardLike={onCardLike}
+                onCardDelete={onCardDelete}
+              />
             );
           })}
         </ul>

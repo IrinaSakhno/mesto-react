@@ -82,7 +82,7 @@ function App() {
       .catch(console.error);
   };
 
-  const handleAddPlace = ({name, link}) => {
+  const handleAddPlace = ({ name, link }) => {
     api
       .addNewCard({ name, link })
       .then((newCard) => {
@@ -90,7 +90,7 @@ function App() {
         closeAllPopups();
       })
       .catch(console.error);
-  }
+  };
 
   const handleEditAvatarClick = () => {
     setIsEditAvatarPopupOpen(true);

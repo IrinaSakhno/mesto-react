@@ -3,9 +3,13 @@ import React from "react";
 function ImagePopup({ onClose, name, card }) {
   return (
     <div
-      className={card.isOpen ? `popup popup_darker-background popup_opened` : `popup popup_darker-background`}
+      className={
+        card.isOpen
+          ? `popup popup_darker-background popup_opened`
+          : `popup popup_darker-background`
+      }
       id={`popup__${name}`}
-      onKeyDown={() => console.log('Pressed')}
+      onKeyDown={() => console.log("Pressed")}
     >
       <div className="popup__overlay" onMouseDown={onClose}></div>
       <div className="popup__picture-view">
@@ -15,8 +19,14 @@ function ImagePopup({ onClose, name, card }) {
           onClick={onClose}
         ></button>
         <figure className="popup__picture-with-caption">
-          <img className="popup__picture" src={card.element.link} alt={card.element.name} />
-          <figcaption className="popup__picture-caption">{card.element.name}</figcaption>
+          <img
+            className="popup__picture"
+            src={card.element.link}
+            alt={card.element.name}
+          />
+          <figcaption className="popup__picture-caption">
+            {card.element.name}
+          </figcaption>
         </figure>
       </div>
     </div>
