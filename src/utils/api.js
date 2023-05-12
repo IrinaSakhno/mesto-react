@@ -116,6 +116,7 @@ class Api {
       return this._getResponseData(res);
     });
   }
+  
 }
 
 const api = new Api({
