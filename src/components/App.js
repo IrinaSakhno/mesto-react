@@ -6,6 +6,7 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import api from "../utils/api";
 import CurrentUserContext from "../contexts/CurrentUserContext";
+import EditProfilePopup from "./EditProfilePopup";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -37,12 +38,22 @@ function App() {
   const handleCardLike = (card) => {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     api
-      .changeLikeCardStatus(card._id, !isLiked)
+      .changeLikeCardStatus(card._id, isLiked)
       .then((newCard) => {
-      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-    })
+        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+      })
       .catch(console.error);
   };
+
+  const handleCardDelete = (card) => {
+    api.deleteCard(card._id)
+    .then(() => {
+      setCards((cards) => cards.filter((c) => c._id !== card._id));
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
 
   const handleEditAvatarClick = () => {
     setIsEditAvatarPopupOpen(true);
@@ -99,6 +110,7 @@ function App() {
           onCardClick={handleCardClick}
           cards={cards}
           onCardLike={handleCardLike}
+          onCardDelete={handleCardDelete}
         />
         <Footer />
         <PopupWithForm
@@ -127,36 +139,9 @@ function App() {
           <span className="popup__input-error placelink-input-error avatar-link-input-error"></span>
         </PopupWithForm>
 
-        <PopupWithForm
-          title={"Редактировать профиль"}
-          name={"change-name"}
-          buttonText={"Сохранить"}
+        <EditProfilePopup 
           isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-        >
-          <input
-            className="popup__form-field popup__form-field-name"
-            name="name"
-            id="name-input"
-            type="text"
-            placeholder="Введите имя"
-            minLength="2"
-            maxLength="40"
-            required
-          />
-          <span className="popup__input-error name-input-error"></span>
-          <input
-            className="popup__form-field popup__form-field-occupation"
-            name="occupation"
-            id="occupation-input"
-            type="text"
-            placeholder="Введите свой тип занятости"
-            minLength="2"
-            maxLength="200"
-            required
-          />
-          <span className="popup__input-error occupation-input-error"></span>
-        </PopupWithForm>
+          onClose={closeAllPopups} />
 
         <PopupWithForm
           title={"Новое место"}

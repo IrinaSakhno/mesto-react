@@ -117,6 +117,14 @@ class Api {
     });
   }
   
+  changeLikeCardStatus(cardId, likeStatus) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
+      method: `${likeStatus ? "DELETE" : "PUT"}`,
+      headers: this._headers,
+    })
+      .then((res) => {
+        return this._getResponseData(res)})
+  }
 }
 
 const api = new Api({
