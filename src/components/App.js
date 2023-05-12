@@ -62,7 +62,6 @@ function App() {
 
   const handleUpdateUser = ({ name, about }) => {
     api.editProfile({ name, about }).then((res) => {
-      console.log(res);
       setCurrentUser({ name: res.name, about: res.about, avatar: res.avatar });
       closeAllPopups();
     });
