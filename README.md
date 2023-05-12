@@ -5,7 +5,7 @@
 ## Инструкция по установке:
 ### Клонировать репозиторий:
 
-### git clone https://github.com/MelnikovAleksei/mesto-react.git
+### git clone https://github.com/IrinaSakhno/mesto-react.git
 
 ### В директории проекта запустить приложение в режиме разработки:
 
