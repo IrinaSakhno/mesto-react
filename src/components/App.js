@@ -7,6 +7,7 @@ import ImagePopup from "./ImagePopup";
 import api from "../utils/api";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
+import EditAvatarPopup from "./EditAvatarPopup";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -53,6 +54,25 @@ function App() {
     .catch((err) => {
       console.log(err);
     })
+  }
+
+  const handleUpdateUser = ({name, about}) => {
+    api.editProfile({name, about})
+      .then((res) => {
+        console.log(res);
+        setCurrentUser({name: res.name, about: res.about, avatar: res.avatar});
+        closeAllPopups();
+      })
+  }
+
+   const handleUpdateAvatar = ({ avatar }) => {
+    api
+      .changeAvatar(avatar)
+      .then((res) => {
+        setCurrentUser({name: res.name, about: res.about, avatar: res.avatar});
+        closeAllPopups();
+      })
+      .catch(console.error);
   }
 
   const handleEditAvatarClick = () => {
@@ -121,27 +141,12 @@ function App() {
           onClose={closeAllPopups}
         />
 
-        <PopupWithForm
-          title={"Обновить аватар"}
-          name={"new-avatar"}
-          buttonText={"Обновить аватар"}
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-        >
-          <input
-            className="popup__form-field popup__form-field-source"
-            name="source"
-            id="avatar-link-input"
-            type="url"
-            placeholder="Ссылка на картинку"
-            required
-          />
-          <span className="popup__input-error placelink-input-error avatar-link-input-error"></span>
-        </PopupWithForm>
+        <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} /> 
 
         <EditProfilePopup 
           isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups} />
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser} />
 
         <PopupWithForm
           title={"Новое место"}
